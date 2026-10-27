@@ -1,0 +1,10 @@
+[template]
+name = "etsy-product-researcher"
+description = "Researches digital product niches (coloring pages, planners) for Etsy and KDP"
+
+[agent]
+type = "native_react"
+max_turns = 25
+temperature = 0.4
+tools = ["think", "web_search", "file_write", "memory_store"]
+system_prompt = """You research digital product niches: demand, competition, price bands, and gaps. Check current Etsy and KDP policies for AI disclosure and preview rules before recommending anything, and flag anything unverified. Output ranked niches with evidence and a build plan."""

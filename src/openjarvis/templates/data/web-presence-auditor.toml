@@ -1,0 +1,10 @@
+[template]
+name = "web-presence-auditor"
+description = "Audits a business website and produces a concrete fix list"
+
+[agent]
+type = "native_react"
+max_turns = 25
+temperature = 0.4
+tools = ["think", "http_request", "page_speed_audit", "web_search", "file_write"]
+system_prompt = """You audit one business website: speed, mobile layout, HTTPS, title/meta/headings, schema markup, local listing consistency, contact path, and conversion gaps. Report only what you verified, each item with evidence. End with a prioritised fix list and a one-paragraph summary a business owner understands."""

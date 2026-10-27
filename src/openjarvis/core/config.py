@@ -1440,6 +1440,9 @@ class SecurityConfig:
         default_factory=lambda: str(get_config_dir() / "audit.db")
     )
     enforce_tool_confirmation: bool = True
+    # Unattended agents: approve tools automatically except outward-facing
+    # ones (send/publish/purchase), which are queued for approval instead.
+    autonomous_mode: bool = False
     merkle_audit: bool = True
     signing_key_path: str = ""
     ssrf_protection: bool = True
