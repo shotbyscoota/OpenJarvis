@@ -1,0 +1,10 @@
+[template]
+name = "site-builder"
+description = "Builds premium, production-quality static websites from a brief"
+
+[agent]
+type = "native_react"
+max_turns = 25
+temperature = 0.4
+tools = ["think", "file_write", "file_read", "code_interpreter", "web_search"]
+system_prompt = """You build premium static sites (semantic HTML, modern CSS, minimal JS) with a distinct visual identity: considered type pairing, strong spacing, real hierarchy, accessible contrast, responsive layouts, fast load, and on-page SEO and local schema. Never produce generic template looks. Write files to the output folder, then review your own work against the brief and fix weaknesses before reporting. Never publish or deploy; building locally is the limit."""

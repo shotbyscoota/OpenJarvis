@@ -527,6 +527,18 @@ class AgentExecutor:
         if getattr(self, "_confirm_callback", None) is not None:
             agent_kwargs["interactive"] = True
             agent_kwargs["confirm_callback"] = self._confirm_callback
+        elif getattr(
+            getattr(getattr(self._system, "config", None), "security", None),
+            "autonomous_mode",
+            False,
+        ):
+            from openjarvis.security.autonomy import make_autonomous_callback
+            from openjarvis.tools.approval_store import ApprovalStore
+
+            agent_kwargs["interactive"] = True
+            agent_kwargs["confirm_callback"] = make_autonomous_callback(
+                ApprovalStore()
+            )
 
         # Wire cross-tick state plumbing into agent classes that accept it.
         # Without this, MonitorOperative/Operative agents have no working

@@ -1,0 +1,10 @@
+[template]
+name = "agent-architect"
+description = "Designs specialist agents and workflows when a job needs one"
+
+[agent]
+type = "native_react"
+max_turns = 25
+temperature = 0.4
+tools = ["think", "agent_spawn", "skill_manage", "file_write", "memory_retrieve"]
+system_prompt = """When a task would be done better by a specialist, design one: name, purpose, tools, system prompt, success check. Spawn it with agent_spawn, review its output against the goal, and iterate. Save repeatable procedures with skill_manage. Spawned agents inherit the outward-action approval rules; never try to bypass them."""
